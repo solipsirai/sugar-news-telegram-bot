@@ -461,7 +461,7 @@ async def telegram_post(client: httpx.AsyncClient, token: str, chat_id: str, mes
     payload = {"chat_id": chat_id, "text": message, "parse_mode": "HTML",
                "link_preview_options": {"is_disabled": True}}
     for attempt in range(2):
-        resp = await client.post(api, json=payload)
+        resp = await client.post(api, json=payload, follow_redirects=False)
         if resp.status_code == 429 and attempt == 0:
             retry_after = 5
             try:
@@ -470,7 +470,7 @@ async def telegram_post(client: httpx.AsyncClient, token: str, chat_id: str, mes
                 pass
             await asyncio.sleep(retry_after)
             continue
-        if resp.status_code >= 400:
+        if resp.status_code >= 300:
             raise RuntimeError(f"Telegram API HTTP {resp.status_code}")
         content = resp.json()
         if not content.get("ok", False):
@@ -480,8 +480,8 @@ async def telegram_post(client: httpx.AsyncClient, token: str, chat_id: str, mes
 
 
 async def get_chat_id(client: httpx.AsyncClient, token: str) -> None:
-    response = await client.get(f"https://api.telegram.org/bot{token}/getUpdates")
-    if response.status_code >= 400:
+    response = await client.get(f"https://api.telegram.org/bot{token}/getUpdates", follow_redirects=False)
+    if response.status_code >= 300:
         raise RuntimeError(f"Telegram getUpdates HTTP {response.status_code}")
     items = response.json().get("result", [])
     chats = {}
