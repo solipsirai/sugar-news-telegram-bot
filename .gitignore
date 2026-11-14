@@ -1,0 +1,12 @@
+.env
+/data/
+__pycache__/
+.pytest_cache/
+*.pyc
+.env.*
+!.env.example
+.venv/
+*.log
+state.json
+*.xlsx
+*.zip
