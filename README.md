@@ -36,4 +36,13 @@ Gemini is optional and disabled by default. When you supply a Gemini API key, th
 
 Bot anahtarını ve sohbet kimliğini yerel `.env` dosyasında saklayın. Telegram, bildirim gönderilirken sohbet kimliğini ve mesajı alır. `--get-chat-id` çıktısı sohbet kimliklerini gösterir. Bu çıktıyı paylaşmayın. Tekrar kontrolü için yerelde kısa süreli başlık özetleri (hash) ve kaynak başlangıç durumu tutulur.
 
+
+⚠️ Disclaimer
+
+This project is for educational and engineering research purposes only. It does not constitute financial advice. The developer is not responsible for any financial losses incurred from using this bot or its signals. Trade at your own risk.
+
+⚖️ Yasal Uyarı (Disclaimer)
+
+Bu yazılım tamamen açık kaynaklı bir mühendislik ve veri bilimi araştırma projesi (Proof of Concept) olarak tasarlanmıştır. Çıktıların hiçbiri bir ticaret sistemi teklifi veya finansal yatırım tavsiyesi (YTD) niteliği taşımaz. Finansal piyasalar doğası gereği yüksek risk içerir, projenin kullanımı sonucu doğabilecek kâr veya zararlardan kodun geliştiricileri veya katkıda bulunanlar sorumlu tutulamaz. Yazılımı kullanmadan önce daima kendi risk analizinizi ve testlerinizi gerçekleştirmeniz önerilir.
+
 Gemini isteğe bağlıdır ve varsayılan olarak kapalıdır. Anahtar girilirse herkese açık RSS başlığı, kısa önizleme, kaynak ve bölge bilgisi İngilizce çeviri ve kısa değerlendirme için Google’a gönderilir. Yalnızca açık haber kaynaklarını kullanın. Yapay zekâ kullanmadan özgün başlıkları almak için `GEMINI_API_KEY` alanını boş bırakın. Günlükleri, durum dosyalarını ve anahtarları depoya eklemeyin.
